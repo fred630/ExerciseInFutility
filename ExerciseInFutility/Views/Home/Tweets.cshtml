@@ -1,0 +1,70 @@
+﻿@model ExerciseInFutility.Models.TweetView
+@{
+    ViewData["Title"] = "Tweets";
+}
+
+<h2>Tweets</h2>
+
+<div id="dateinput">
+    <div class="row" id="startdatediv">
+        <div class="col-xs-2 col-md-2">
+            <label class="control-label">Start Date</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+            <input id="startdate" class="form-control" type="datetime" />
+        </div>
+    </div>
+    <div class="row" id="enddatediv">
+        <div class="col-xs-2 col-md-2">
+            <label class="control-label">End Date</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+            <input id="enddate" class="form-control" type="datetime" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1 col-md-1">
+            <button class="btn" onclick="getTweets();">Get Tweets</button>
+        </div>
+    </div>
+</div>
+
+@foreach (var item in Model.TweetList)
+{
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+                <div class="col-xs-2 col-md-2">
+                    <label class="control-label">id</label>
+                </div>
+                <div class="col-xs-10 col-md-10">
+                    <text>@item.id</text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+                <div class="col-xs-2 col-md-2">
+                    <label class="control-label">timestamp</label>
+                </div>
+                <div class="col-xs-10 col-md-10">
+                    <text>@item.stamp</text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+                <div class="col-xs-2 col-md-2">
+                    <label class="control-label">text</label>
+                </div>
+                <div class="col-xs-10 col-md-10">
+                    <text>@item.text</text>
+                </div>
+            </div>
+        </div>
+    </div>
+}
