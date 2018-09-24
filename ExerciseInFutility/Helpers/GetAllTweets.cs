@@ -29,7 +29,7 @@ namespace ExerciseInFutility.Helpers
                 var converted = JsonConvert.DeserializeObject<List<Tweets>>(getTweetStorm.Result);
                 tweets.AddRange(converted);
                 getMoreTweets = GetMore(converted.Last().stamp, endDate, converted.Count);
-                startD = DateTime.Parse(converted.Last().stamp);
+                startD = DateTime.Parse(converted.Last().stamp).AddMilliseconds(1);
             }
 
             return tweets;
